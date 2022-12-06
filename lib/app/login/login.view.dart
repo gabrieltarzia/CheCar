@@ -1,6 +1,9 @@
+import 'package:car_review/app/helpers/colors.helper.dart';
 import 'package:car_review/app/home/home.view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../helpers/theme.helper.dart';
 
 class LoginView extends StatelessWidget {
   final obscurePassWord = true.obs;
@@ -17,7 +20,7 @@ class LoginView extends StatelessWidget {
   _body(BuildContext context) => Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        color: Colors.black87,
+        color: Colorshelper.secondaryColor,
         child: Padding(
           padding: EdgeInsets.all(24),
           child: Column(
@@ -32,43 +35,26 @@ class LoginView extends StatelessWidget {
                 width: 524,
                 child: Column(
                   children: [
-                    Text(
+                    const Text(
                       'Username',
-                      style: TextStyle(
-                          color: Colors.grey,
-                          fontFamily: 'Times New Roman',
-                          fontSize: 16),
+                      style: ThemeHelper.inputFieldTitleTheme,
                     ),
-                    SizedBox(height: 18),
+                    const SizedBox(height: 18),
                     TextField(
                       style: TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                          focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.amber)),
-                          enabledBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(width: 0.5, color: Colors.amber))),
+                      decoration: ThemeHelper.inputFieldTheme,
                     ),
                     SizedBox(height: 54),
-                    Text(
+                    const Text(
                       'Password',
-                      style: TextStyle(
-                          color: Colors.grey,
-                          fontFamily: 'Times New Roman',
-                          fontSize: 16),
+                      style: ThemeHelper.inputFieldTitleTheme,
                     ),
-                    SizedBox(height: 18),
+                    const SizedBox(height: 18),
                     Obx(() {
                       return TextField(
                         obscureText: obscurePassWord.value,
                         style: TextStyle(color: Colors.white),
-                        decoration: InputDecoration(
-                            suffixIcon: _obscurePassword(obscurePassWord.value),
-                            focusedBorder: const UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.amber)),
-                            enabledBorder: const OutlineInputBorder(
-                                borderSide: BorderSide(
-                                    width: 0.5, color: Colors.amber))),
+                        decoration: ThemeHelper.inputFieldTheme,
                       );
                     }),
                   ],
@@ -77,12 +63,12 @@ class LoginView extends StatelessWidget {
               const SizedBox(height: 24),
               ElevatedButton(
                   onPressed: () {
-                   /* Get.snackbar('Error', 'Invalid user',
+                    /* Get.snackbar('Error', 'Invalid user',
                         colorText: Colors.amber,
                         backgroundColor: Colors.grey,
                         icon: const Icon(Icons.error),
                         snackStyle: SnackStyle.GROUNDED);*/
-                        Get.to(const HomeView());
+                    Get.to(const HomeView());
                   },
                   style:
                       ElevatedButton.styleFrom(backgroundColor: Colors.amber),
