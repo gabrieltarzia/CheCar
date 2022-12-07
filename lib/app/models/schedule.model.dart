@@ -7,4 +7,5 @@ class Schedule {
   Owner? owner;
   Vehicle? vehicle;
   final date = ''.obs;
+  int stage = 0;
 }

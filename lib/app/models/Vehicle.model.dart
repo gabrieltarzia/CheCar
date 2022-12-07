@@ -3,4 +3,6 @@ class Vehicle{
   final model = '';
   final color = '';
   final plate = '';
+  final done = false;
+  final approved = false;
 }

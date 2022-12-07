@@ -1,11 +1,10 @@
 import 'package:car_review/app/helpers/colors.helper.dart';
 import 'package:car_review/app/models/schedule.model.dart';
-import 'package:car_review/app/schedule/schedule.controller.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:car_review/app/controllers/schedule.controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../helpers/theme.helper.dart';
+import '../../helpers/theme.helper.dart';
 
 class ScheduleView extends GetView<ScheduleController> {
   ScheduleView({Key? key}) : super(key: key);
@@ -33,8 +32,8 @@ class ScheduleView extends GetView<ScheduleController> {
                 color: Colorshelper.primaryColor,
                 border: Border.all(color: Colors.black),
                 borderRadius: const BorderRadius.all(Radius.circular(18))),
-            height: 600,
-            width: 900,
+            height: 750,
+            width: 950,
             child: ListView(
               shrinkWrap: true,
               children: [
@@ -77,7 +76,25 @@ class ScheduleView extends GetView<ScheduleController> {
                             fontSize: 24),
                       )),
                 ),
-                const SizedBox(height: 18)
+                const SizedBox(height: 18),
+                SizedBox(
+                  height: 48,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 324),
+                    child: ElevatedButton(
+                        onPressed: () {
+                          Get.back();
+                        },
+                        child: const Text(
+                          'Voltar',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontFamily: 'Times new Roman',
+                              fontSize: 18),
+                        )),
+                  ),
+                ),
+                const SizedBox(height: 18),
               ],
             ),
           ),
@@ -207,7 +224,7 @@ class ScheduleView extends GetView<ScheduleController> {
                       height: 28,
                       width: 542,
                       child: TextField(
-                         keyboardType: TextInputType.name,
+                        keyboardType: TextInputType.name,
                         controller: vehicleBrandController,
                         style: const TextStyle(color: Colors.white),
                         decoration: ThemeHelper.inputFieldTheme,
@@ -220,7 +237,7 @@ class ScheduleView extends GetView<ScheduleController> {
                       height: 28,
                       width: 542,
                       child: TextField(
-                         keyboardType: TextInputType.name,
+                        keyboardType: TextInputType.name,
                         controller: vehicleModelController,
                         style: const TextStyle(color: Colors.white),
                         decoration: ThemeHelper.inputFieldTheme,
@@ -233,7 +250,7 @@ class ScheduleView extends GetView<ScheduleController> {
                       height: 28,
                       width: 542,
                       child: TextField(
-                         keyboardType: TextInputType.name,
+                        keyboardType: TextInputType.name,
                         controller: vehicleColorController,
                         style: const TextStyle(color: Colors.white),
                         decoration: ThemeHelper.inputFieldTheme,
@@ -246,7 +263,7 @@ class ScheduleView extends GetView<ScheduleController> {
                       height: 28,
                       width: 542,
                       child: TextField(
-                         keyboardType: TextInputType.text,
+                        keyboardType: TextInputType.text,
                         controller: vehiclePlateController,
                         style: const TextStyle(color: Colors.white),
                         decoration: ThemeHelper.inputFieldTheme,

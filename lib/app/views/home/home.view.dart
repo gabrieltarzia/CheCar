@@ -1,5 +1,8 @@
 import 'package:car_review/app/helpers/colors.helper.dart';
-import 'package:car_review/app/schedule/schedule.view.dart';
+import 'package:car_review/app/helpers/theme.helper.dart';
+import 'package:car_review/app/views/profile/profile.view.dart';
+import 'package:car_review/app/views/reviewed/reviewed.view.dart';
+import 'package:car_review/app/views/schedule/schedule.view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,10 +16,10 @@ class HomeView extends StatelessWidget {
         leading: _profileButton(),
         title: const Text(
           'Bem vindo Admin',
-          style: TextStyle(color: Colors.black),
+          style: ThemeHelper.titleStyle,
         ),
         actions: [_logOutButton()],
-        backgroundColor: Colors.amber,
+        backgroundColor: Colorshelper.primaryColor,
       ),
       body: _body(),
     );
@@ -25,7 +28,9 @@ class HomeView extends StatelessWidget {
   _profileButton() => IconButton(
         icon: const Icon(Icons.person),
         color: Colors.black,
-        onPressed: () {},
+        onPressed: () {
+          Get.to(ProfileView());
+        },
       );
 
   _logOutButton() => IconButton(
@@ -42,37 +47,40 @@ class HomeView extends StatelessWidget {
         children: [
           Container(
             height: 125,
-            color:Colorshelper.secondaryColor,
+            color: Colorshelper.secondaryColor,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                  padding: EdgeInsets.all(12),
-                  child: Container(
-                    width: 124,
-                    height: 68,
-                    color: Colors.amber,
-                    child: Column(
-                      children: const [
-                        Icon(
-                          Icons.search,
-                          size: 38,
-                        ),
-                        Text(
-                          'Consultar veiculos avaliados',
-                          style: TextStyle(
-                              fontFamily: 'Times New Roman', fontSize: 12),
-                        ),
-                      ],
+                  padding: const EdgeInsets.all(12),
+                  child: InkWell(
+                    onTap: () {
+                      Get.to(const ReviewedView());
+                    },
+                    child: Container(
+                      width: 124,
+                      height: 68,
+                      color: Colors.amber,
+                      child: Column(
+                        children: const [
+                          Icon(
+                            Icons.search,
+                            size: 38,
+                          ),
+                          Text(
+                            'Consultar veiculos avaliados',
+                            style: TextStyle(
+                                fontFamily: 'Times New Roman', fontSize: 12),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(12),
+                  padding: const EdgeInsets.all(12),
                   child: InkWell(
-                    onTap: () {
-                      print('Vistorias agendadas');
-                    },
+                    onTap: () {},
                     child: Container(
                       width: 124,
                       height: 68,
@@ -94,7 +102,7 @@ class HomeView extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(12),
+                  padding: const EdgeInsets.all(12),
                   child: InkWell(
                     onTap: () {
                       Get.to(ScheduleView());
@@ -120,7 +128,7 @@ class HomeView extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(12),
+                  padding: const EdgeInsets.all(12),
                   child: Container(
                     width: 124,
                     height: 68,
@@ -143,16 +151,6 @@ class HomeView extends StatelessWidget {
               ],
             ),
           ),
-          /* Container(
-            child: Center(
-              child: ElevatedButton(
-                child: Text('BACK'),
-                onPressed: () {
-                  Get.back();
-                },
-              ),
-            ),
-          ),*/
         ],
       );
 }

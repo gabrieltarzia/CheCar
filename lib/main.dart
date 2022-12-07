@@ -1,8 +1,7 @@
+import 'package:car_review/app/views/login/login.view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'app/Bindings/initial.bindings.dart';
-import 'app/login/login.view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +15,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       initialBinding: InitialBindings(),
-      title: 'teste',
+      title: 'Checar',
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
       ),

@@ -11,4 +11,7 @@ class ThemeHelper {
 
   static const inputFieldTitleTheme = TextStyle(
       color: Colors.grey, fontFamily: 'Times New Roman', fontSize: 16);
+
+  static const titleStyle = TextStyle(
+      color: Colors.black, fontSize: 24, fontFamily: 'Times New Toman');
 }

@@ -1,9 +1,8 @@
 import 'package:car_review/app/helpers/colors.helper.dart';
-import 'package:car_review/app/home/home.view.dart';
+import 'package:car_review/app/helpers/theme.helper.dart';
+import 'package:car_review/app/views/home/home.view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../helpers/theme.helper.dart';
 
 class LoginView extends StatelessWidget {
   final obscurePassWord = true.obs;
@@ -22,16 +21,16 @@ class LoginView extends StatelessWidget {
         height: MediaQuery.of(context).size.height,
         color: Colorshelper.secondaryColor,
         child: Padding(
-          padding: EdgeInsets.all(24),
+          padding: const EdgeInsets.all(24),
           child: Column(
             children: [
-              SizedBox(height: 122),
+              const SizedBox(height: 122),
               Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Image.asset('lib/assets/images/Checar.png'),
               ),
-              SizedBox(height: 48),
-              Container(
+              const SizedBox(height: 48),
+              SizedBox(
                 width: 524,
                 child: Column(
                   children: [
@@ -40,11 +39,11 @@ class LoginView extends StatelessWidget {
                       style: ThemeHelper.inputFieldTitleTheme,
                     ),
                     const SizedBox(height: 18),
-                    TextField(
+                    const TextField(
                       style: TextStyle(color: Colors.white),
                       decoration: ThemeHelper.inputFieldTheme,
                     ),
-                    SizedBox(height: 54),
+                    const SizedBox(height: 54),
                     const Text(
                       'Password',
                       style: ThemeHelper.inputFieldTitleTheme,
@@ -52,10 +51,18 @@ class LoginView extends StatelessWidget {
                     const SizedBox(height: 18),
                     Obx(() {
                       return TextField(
-                        obscureText: obscurePassWord.value,
-                        style: TextStyle(color: Colors.white),
-                        decoration: ThemeHelper.inputFieldTheme,
-                      );
+                          obscureText: obscurePassWord.value,
+                          style: const TextStyle(color: Colors.white),
+                          decoration: InputDecoration(
+                              suffixIcon:
+                                  _obscurePassword(obscurePassWord.value),
+                              focusedBorder: const UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: Colorshelper.primaryColor)),
+                              enabledBorder: const OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      width: 0.5,
+                                      color: Colorshelper.primaryColor))));
                     }),
                   ],
                 ),
